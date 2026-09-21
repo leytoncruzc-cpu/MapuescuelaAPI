@@ -2,9 +2,9 @@ spring:
   application:
     name: mapuescuela
   datasource:
-    url: jdbc:postgresql://localhost:5432/mapuescuela
-    username: mapuescuela
-    password: mapuescuela_dev
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/mapuescuela}
+    username: ${SPRING_DATASOURCE_USERNAME:mapuescuela}
+    password: ${SPRING_DATASOURCE_PASSWORD:mapuescuela_dev}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -19,4 +19,4 @@ flowable:
   async-executor-activate: true
 
 server:
-  port: 8080
+  port: ${PORT:8080}
