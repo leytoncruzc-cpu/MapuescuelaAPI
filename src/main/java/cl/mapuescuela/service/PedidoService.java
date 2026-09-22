@@ -122,6 +122,13 @@ public class PedidoService {
                 .toList();
     }
 
+    public PedidoResponse cancelar(Long id) {
+        Pedido pedido = obtenerPedido(id);
+        validarPuedeModificar(pedido);
+        pedido.setEstado(EstadoPedido.CANCELADO);
+        return toResponse(pedido);
+    }
+
     public void eliminar(Long id) {
         Pedido pedido = obtenerPedido(id);
         pedidoRepository.delete(pedido);
