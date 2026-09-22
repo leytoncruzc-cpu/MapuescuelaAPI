@@ -63,6 +63,13 @@ public class PedidoController {
         return pedidoService.actualizar(id, request);
     }
 
+    @PostMapping("/{id}/cancelar")
+    public PedidoResponse cancelar(
+            @PathVariable Long id
+    ) {
+        return pedidoService.cancelar(id);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(
